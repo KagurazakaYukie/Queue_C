@@ -1,7 +1,7 @@
-#include "queue.h"
+#include "Queue.h"
 #include <stdbool.h>
 #include <stdio.h>
-#include "mtmm.h"
+#include "MultitThreadMemoryManager.h"
 
 QueueManager *QueueManagerInit(MTMemoryManager *mm) {
 	MemoryBigUnit *mbu=MTMemoryManagerBindingThread(mm,1);

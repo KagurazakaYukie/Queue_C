@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include "mtmm.h"
+#include "MultitThreadMemoryManager.h"
 
 typedef struct q {
   void *data;
