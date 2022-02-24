@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <semaphore.h>
 #include "MultitThreadMemoryManager.h"
 
 typedef struct q {
@@ -17,17 +18,17 @@ typedef struct q {
 typedef struct wer {
   Queue *t;
   Queue *w;
-  int Size;
+  sem_t *sem;
   MemoryBigUnit *mbu;
   MemorySmallUnit *msu;
-  MemoryInfo *mi;
+  MemoryInfo *mi,*semm;
 } QueueManager;
 
 QueueManager *QueueManagerInit(MTMemoryManager *mm);
 
 Queue *QueueSetNote(Queue * q, void *v);
 
-Queue *QueueManagerAdd(MTMemoryManager *mm,QueueManager * qm, void *b, void *data);
+Queue *QueueManagerAdd(MTMemoryManager *mm, QueueManager *qm, void *b, void *data,void *note);
 
 Queue *QueueManagerAddQueue(QueueManager * qm, Queue * q);
 
